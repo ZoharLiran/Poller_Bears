@@ -9,6 +9,8 @@ $(document).ready(function() {
       data: form_data
     }).done(function(data) {
       console.log(data);
+      // todo: check data for valid response
+      $("#login_bar").hide("slow");
     });
   });
 });
