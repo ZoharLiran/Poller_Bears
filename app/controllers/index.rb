@@ -92,6 +92,8 @@ put '/surveys' do #Goes back to main surveys UPDATE Survey
 
 end
 
+
+
 delete '/sessions' do
   session.clear
   return true
