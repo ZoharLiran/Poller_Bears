@@ -29,7 +29,7 @@ Photos:
 
 Trello:
 -------
-![Poller Bears' Tasks](https://trello.com/b/y05YFCNA/poller-bears)
+[Poller Bears' Tasks](https://trello.com/b/y05YFCNA/poller-bears)
 
 Git Aggreement:
 --------------
