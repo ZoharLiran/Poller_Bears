@@ -1,7 +1,14 @@
 $(document).ready(function() {
-  // This is called after the document has loaded in its entirety
-  // This guarantees that any elements we bind to will exist on the page
-  // when we try to bind to them
+  $('form[name="create_account"]').click(function(event) {
+    event.preventDefault();
+    var form_data = $(this).serialize();
 
-  // See: http://docs.jquery.com/Tutorials:Introducing_$(document).ready()
+    $.ajax({
+      url: "/users",
+      type: "POST",
+      data: form_data
+    }).done(function(data) {
+      console.log(data);
+    });
+  });
 });
