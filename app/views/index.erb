@@ -3,20 +3,23 @@
   <p>Sign-up for an account in order to create a new survey!</p><br>
   <p>No account is needed to take an existing survey. Just dive in!</p>
 
-  <h3>Sign-up</h3>
-  <form action="/users" name="create_account" method="post">
-    <input type="name" placeholder="name" name="name">
-    <input type="text" placeholder="email" name="email">
-    <input type="password" placeholder="password" name="password_hash">
-    <input type="submit" value="Sign-Up">
-  </form>
 
-  <h3>Log-in</h3>
-  <form action="/sessions" name="login" method="post">
-    <input type="text" placeholder="email" name="email">
-    <input type="password" placeholder="password" name="password">
-    <input type="submit" value="Sign-in">
-  </form>
+  <div id="login_bar">
+    <h3>Sign-up</h3>
+    <form action="/users" name="create_account" method="post">
+      <input type="name" placeholder="name" name="name">
+      <input type="text" placeholder="email" name="email">
+      <input type="password" placeholder="password" name="password_hash">
+      <input type="submit" value="Sign-Up">
+    </form>
+
+    <h3>Log-in</h3>
+    <form action="/sessions" name="login" method="post">
+      <input type="text" placeholder="email" name="email">
+      <input type="password" placeholder="password" name="password">
+      <input type="submit" value="Sign-in">
+    </form>
+  </div>
 
 <!--   Linked list of surveys -->
 
