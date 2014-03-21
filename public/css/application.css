@@ -85,3 +85,12 @@ h3 {
 .survey_list a {
   color: #FF9147;
 }
+
+#result_graph {
+  position:fixed;
+  top:10%;
+  left: 20%;
+  width: 75%; 
+  height: 400px; 
+  margin: 0 auto;
+}

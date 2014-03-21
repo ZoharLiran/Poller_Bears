@@ -52,7 +52,6 @@ post '/surveys/:id' do #post data from specific survey
     current_question = Question.find(key)
     current_question.choices.create(user_id: user_id, choice: value)
   }
-  session[:results] = results
   redirect "/surveys/#{params[:id]}/results"
 end
 
@@ -60,9 +59,11 @@ get '/surveys/:id/results' do
   @results = {}
   current_survey = Survey.find(params[:id])
   questions = current_survey.questions
-  questions.each do |question|  
-    @results[:question.id] = question.answers_distribution
+  questions.each_with_index do |question, index|  
+    question_id = question.id
+    @results[index] = question.answers_distribution
   end
+  @results[:title] = current_survey.title
   erb :results
 end
 

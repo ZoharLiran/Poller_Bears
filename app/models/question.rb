@@ -7,7 +7,8 @@ class Question < ActiveRecord::Base
     answers = self.choices
     result = {1 => 0, 2=> 0, 3=> 0, 4=> 0, 5=> 0}
     answers.each do |answer|
-      result[:answer.choice] += 1
+      answer_choice = answer.choice
+      result[answer_choice] += 1
     end
     result
   end
