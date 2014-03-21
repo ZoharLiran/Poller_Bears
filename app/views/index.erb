@@ -1,23 +1,25 @@
 <div class="container">
-  <h1>Welcome to Sinatra!</h1>
-  <p>Hello, <%= em("world!") %></p>
+  <h1>Team Poller Bears Presents: SURVEYS!</h1>
+  <p>Sign-up for an account in order to create a new survey!</p><br>
+  <p>No account is needed to take an existing survey. Just dive in!</p>
 
-  <table>
-    <tr>
-      <th>File Description</th>
-      <th>File Location</th>
-    </tr>
-    <tr>
-      <td>This view file</td>
-      <td><code><%= __FILE__.gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The layout file</td>
-      <td><code><%= File.expand_path('../layout.erb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-    <tr>
-      <td>The current controller</td>
-      <td><code><%= File.expand_path('../../controllers/index.rb', __FILE__).gsub(Sinatra::Application.root, '') %></code></td>
-    </tr>
-  </table>
+  <h3>Sign-up</h3>
+  <form action="/users" name="create_account" method="post">
+    <input type="name" placeholder="name" name="name">
+    <input type="text" placeholder="email" name="email">
+    <input type="password" placeholder="password" name="password_hash">
+    <input type="submit" value="Sign-Up">
+  </form>
+
+  <h3>Log-in</h3>
+  <form action="/sessions" name="login" method="post">
+    <input type="text" placeholder="email" name="email">
+    <input type="password" placeholder="password" name="password">
+    <input type="submit" value="Sign-in">
+  </form>
+
+<!--   Linked list of surveys -->
+
+
+
 </div>
