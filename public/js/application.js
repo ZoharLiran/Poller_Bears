@@ -9,6 +9,7 @@ SurveyApp.prototype = {
   addListeners: function() {
     $('form[name="create_account"]').submit(surveyApp.clickSubmitSignup);
     $('form[name="login"]').submit(surveyApp.clickSubmitSignup);
+    $('#logout').click(clickSubmitLogout);
   },
 
   clickSubmitSignup: function(event) {
