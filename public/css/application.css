@@ -8,6 +8,7 @@ h1 {
 p {
   font-family: sans-serif;
   color: #0000FF;
+
 }
 
 body {
@@ -23,6 +24,9 @@ h3 {
   text-align: center;
 }
 
+a {
+  color: red;
+}
 
 .container {
   margin: 0 auto;
@@ -75,6 +79,7 @@ h3 {
 
 .survey_list ul {
   list-style: none;
+  color: red;
 }
 
 .survey_list li {
@@ -83,5 +88,10 @@ h3 {
 }
 
 .survey_list a {
-  color: #FF9147;
+  color: #FF944D;
+}
+
+.survey_list a:hover {
+  background-color: #FF944D;
+  color: white;
 }
