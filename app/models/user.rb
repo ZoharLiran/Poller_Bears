@@ -3,8 +3,11 @@ class User < ActiveRecord::Base
   has_many :questions, :through => :choices
   has_many :surveys
 
-   # users.password_hash in the database is a :string
-   include BCrypt
+  validates :name, presence: true
+  validates :email, presence: true, uniqueness: true
+  validates :password_hash, presence: true
+  # users.password_hash in the database is a :string
+  include BCrypt
 
   def password
    @password ||= Password.new(password_hash)
