@@ -8,11 +8,9 @@
 
   <div class="survey_list">
     <ul>
-      <a href="/surveys/:id/"><li>Survey Title 1</li></a>
-      <a href="/surveys/:id/"><li>Survey Title 2</li></a>
-      <a href="/surveys/:id/"><li>Survey Title 3</li></a>
-      <a href="/surveys/:id/"><li>Survey Title 4</li></a>
-      <a href="/surveys/:id/"><li>Survey Title 5</li></a>
+      <% @surveys.each do |survey| %>
+      <li><a href="/survey/<%= survey.id %>"><%= survey.title %></a></li>
+      <% end %>
     </ul>
   </div>
 
