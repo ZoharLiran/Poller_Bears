@@ -3,13 +3,12 @@ $(document).ready(function() {
   surveyApp.addListeners();
 });
 
-var SurveyApp = function() {
-
-};
+var SurveyApp = function() {};
 
 SurveyApp.prototype = {
   addListeners: function() {
     $('form[name="create_account"]').submit(surveyApp.clickSubmitSignup);
+    $('form[name="login"]').submit(surveyApp.clickSubmitSignup);
   },
 
   clickSubmitSignup: function(event) {
@@ -26,8 +25,28 @@ SurveyApp.prototype = {
     });
   },
 
-  test: function() {
-    console.log("this test");
+  clickSubmitLogin: function(event) {
+    event.preventDefault();
+    var formData = $(this).serialize();
+    $.ajax({
+      url: "/sessions",
+      type: "POST",
+      data: formData
+    }).done(function(data) {
+      $("#login_bar").hide("slow");
+    }).fail(function(data, errorMsg) {
+      alert("Login Error");
+    });
+  },
+
+  clickSubmitLogout: function() {
+    $.ajax({
+      url: "/sessions",
+      type: "delete"
+    }).done(function(data) {
+      $("#logout").hide();
+      $("#login_bar").show("slow");
+    });
   }
 
 };
