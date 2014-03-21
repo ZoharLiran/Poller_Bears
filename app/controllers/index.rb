@@ -3,11 +3,11 @@ get '/' do
 end
 
 post '/sessions' do #login an existing user
- @user = User.find_by_email(params[:email])
- if @user.password == params[:password]
-  session[:user_id] = @user.id
-end
-redirect "/surveys"
+  @user = User.find_by_email(params[:email])
+  if @user.password == params[:password]
+    session[:user_id] = @user.id
+  end
+  redirect "/surveys"
 end
 
 post '/users' do #create a new user
