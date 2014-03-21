@@ -26,7 +26,18 @@ h3 {
 
 a {
   color: red;
+  text-decoration: none;
 }
+
+button {
+  color: white;
+  background-color: #3399FF;
+  border-radius: 100px;
+  padding: 2px;
+  text-align: center;
+  text-decoration: none;
+}
+
 
 .container {
   margin: 0 auto;

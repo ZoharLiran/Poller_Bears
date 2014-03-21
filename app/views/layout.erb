@@ -6,17 +6,14 @@
   <link rel="stylesheet" href="/css/application.css">
   <script src="/js/jquery-2.1.0.min.js"></script>
   <script src="/js/application.js"></script>
-  <title>Poller Bear</title>
+  <title> Poller Bear</title>
 </head>
 
-<!-- TODO put fixed nav and login bar into partials
- -->
 <body>
   <header>
     <%= erb :_navbar %>
-
     <%= erb :_loginbar if !logged_in? %>
-
+    <%= erb :_logout %>
   </header>
   <%= yield %>
 </body>
