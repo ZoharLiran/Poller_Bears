@@ -47,8 +47,8 @@ post '/surveys/:id' do #post data from specific survey
   redirect "/surveys/#{params[:id]}/results"
 end
 
-get '/surveys/:id/results' do 
-
+get '/surveys/:id/results' do
+  erb :results
 end
 
 get '/surveys/new' do #go to the page to create a new survey
