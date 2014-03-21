@@ -1,7 +1,45 @@
-.container {
-  margin: 20px auto;
-  width: 600px;
-  padding: 0px 20px 20px 20px;
-  border: 1px dotted black;
+h1 {
+  color: #000099;
+}
+body {
+  background-color: #99CCFF;
 }
 
+.container {
+  margin: 0 auto;
+  width: 70%;
+  padding: 5px 10px 5px 10px;
+  background-color: #FFFFF3;
+  color: #0000CC;
+  border: 3px solid #FFFFFF;
+}
+
+#fixed_nav {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#fixed_nav ul {
+  list-style: none;
+  float: right;
+}
+#fixed_nav li {
+  float: left;
+  display: block;
+  width: 50px;
+}
+
+#fixed_nav a {
+  color: red;
+}
+
+#login_bar {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  display: block;
+  width: 50px;
+}
