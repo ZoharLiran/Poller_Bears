@@ -1,3 +1,13 @@
+post '/sessions' do #login an existing user
+
+end 
+
+post '/users' do #create a new user
+    @user = User.new(params[:user])
+    @user.password = params[:password]
+    @user.save!
+end
+
 get '/surveys' do #home page
   erb :index
 end
