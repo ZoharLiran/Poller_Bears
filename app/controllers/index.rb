@@ -1,27 +1,31 @@
-get '/' do
-  # Look in app/views/index.erb
-  erb :index
+get '/surveys' do #home page
+
 end
 
-get '/bands' do
-  @band_names = Band.all.map(&:name)
-  erb :bands
+get '/surveys/:id' do #take specific survey
+
 end
 
-post '/bands' do
-  new_band = Band.create!(name: params[:name])
-  redirect "/bands/#{new_band.id}"
+post '/surveys/:id' do #post data from specific survey
+
 end
 
-get '/bands/new' do
-  erb :new_band
+get '/surveys/:id/results' do 
+
 end
 
-get '/bands/:id' do
-  @band = Band.find(params[:id])
-  erb :show_band
+get '/surveys/new' do #go to the page to create a new survey
+
 end
 
-get '/info' do
-  Demo.new(self).info
+post '/surveys' do #create the new survey 
+
+end
+
+get '/surveys/:id/edit' do #edit a specific survey
+
+end
+
+post '/surveys' do #Goes back to main surveys
+
 end
