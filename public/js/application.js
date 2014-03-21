@@ -37,6 +37,16 @@ SurveyApp.prototype = {
     }).fail(function(data, errorMsg) {
       alert("Login Error");
     });
+  },
+
+  clickSubmitLogout: function() {
+    $.ajax({
+      url: "/sessions",
+      type: "delete"
+    }).done(function(data) {
+      $("#logout").hide();
+      $("#login_bar").show("slow");
+    });
   }
 
 };
