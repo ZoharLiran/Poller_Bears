@@ -3,7 +3,7 @@ get '/' do
 end
 
 post '/sessions' do #login an existing user
- @user = User.find_by_email(params[:email])
+  @user = User.find_by_email(params[:email])
   if @user.password == params[:password]
     session[:user_id] = @user.id
   end
@@ -19,6 +19,12 @@ post '/users' do #create a new user
     return true
   end
   return false
+end
+
+before '/users/*' do 
+  if !session[:user_id]
+    redirect '/'
+  end
 end
 
 get '/users/:id/surveys' do
@@ -42,17 +48,21 @@ post '/surveys/:id' do #post data from specific survey
   answers = params[:answers] #{question_id=>answer, 2=>answer, etc...}
   #first user (id=1) is 'anonymous'
   user_id = session[:user_id] ? session[:user_id] : 1
-  results = {}
   answers.each_pair{|key,value|
     current_question = Question.find(key)
     current_question.choices.create(user_id: user_id, choice: value)
-    results[:current_question.id] = current_question.answers_distribution
   }
   session[:results] = results
   redirect "/surveys/#{params[:id]}/results"
 end
 
 get '/surveys/:id/results' do
+  @results = {}
+  current_survey = Survey.find(params[:id])
+  questions = current_survey.questions
+  questions.each do |question|  
+    @results[:question.id] = question.answers_distribution
+  end
   erb :results
 end
 
@@ -80,4 +90,11 @@ end
 
 put '/surveys' do #Goes back to main surveys UPDATE Survey
 
+end
+
+delete '/sessions/:user_id' do 
+  # user_id = params[:user_id]
+  # session[:user_id] = nil
+  session.clear
+  return true
 end
