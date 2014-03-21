@@ -8,38 +8,14 @@
   <script src="/js/application.js"></script>
   <script src="/js/highcharts.js"></script>
   <script src="/js/exporting.js"></script>
-  <title>Poller Bear</title>
+  <title> Poller Bear</title>
 </head>
-
 
 <body>
   <header>
-    <div id="fixed_nav">
-      <ul>
-        <a href="/surveys/"><li>Home</li></a>
-        <a href="/new_survey/"><li>Create a survey</li></a>
-        <a href=""><li>View your surveys</li></a>
-        <a href="/edit_survey/"><li>Edit a survey</li></a>
-      </ul>
-    </div>
-
-      <div id="login_bar">
-        <h3>Sign-up</h3>
-        <form action="/users" name="create_account" method="post">
-          <input type="name" placeholder="name" name="user[name]">
-          <input type="text" placeholder="email" name="user[email]">
-          <input type="password" placeholder="password" name="password">
-          <input type="submit" value="Sign-Up">
-        </form>
-
-        <h3>Log-in</h3>
-        <form action="/sessions" name="login" method="post">
-          <input type="text" placeholder="email" name="email">
-          <input type="password" placeholder="password" name="password">
-          <input type="submit" value="Sign-in">
-        </form>
-      </div>
-
+    <%= erb :_navbar %>
+    <%= erb :_loginbar if !logged_in? %>
+    <%= erb :_logout %>
   </header>
   <%= yield %>
 </body>

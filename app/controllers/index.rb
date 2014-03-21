@@ -21,7 +21,7 @@ post '/users' do #create a new user
   return false
 end
 
-before '/users/*' do 
+before '/users/*' do
   if !session[:user_id]
     redirect '/'
   end
@@ -93,9 +93,9 @@ put '/surveys' do #Goes back to main surveys UPDATE Survey
 
 end
 
-delete '/sessions/:user_id' do 
-  # user_id = params[:user_id]
-  # session[:user_id] = nil
+
+
+delete '/sessions' do
   session.clear
   return true
 end
