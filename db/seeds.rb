@@ -1,5 +1,24 @@
-BANDNAMES = [ "Joy Division", "New Order", "The Smiths", "The Sisters of Mercy", "Wye Oak", "Thao and the Get Down Stay Down",
-          "Siouxsie and the Banshees", "Interpol", "Ted Leo and The Pharmacists", "The Impossibles", "The Promise Ring",
-          "Fugazi" ]
+user = User.new(name: "Anonymous", email: "anon@example.com")
+user.password = "1234"
+user.save!
 
-BANDNAMES.each{ |band_name| Band.create(name: band_name) }
+3.times do 
+  user = User.new(name: Faker::Name.name, email: Faker::Internet.email)
+  user.password = "1234"
+  user.save!
+end
+
+(2..4).each do |i|
+  user = User.find(i)
+  10.times do 
+    survey = user.surveys.create(title: Faker::Lorem.sentence)
+    5.times do 
+      question = survey.questions.create(content: Faker::Lorem.sentence + "?")
+      50.times do 
+        question.choices.create(choice: rand(5)+1)
+      end
+    end
+  end
+end
+
+
