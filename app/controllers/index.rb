@@ -92,9 +92,9 @@ put '/surveys' do #Goes back to main surveys UPDATE Survey
 
 end
 
-delete '/sessions/:user_id' do
-  # user_id = params[:user_id]
-  # session[:user_id] = nil
+
+
+delete '/sessions' do
   session.clear
   return true
 end
