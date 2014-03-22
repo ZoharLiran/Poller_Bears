@@ -9,15 +9,15 @@
         <li>
           <a href="/surveys/"><%= question.content %></a>
           <br>
-            1. <input type="radio" name="<%= question.id %>" value="1">
-            2. <input type="radio" name="<%= question.id %>" value="2">
-            3. <input type="radio" name="<%= question.id %>" value="3">
-            4. <input type="radio" name="<%= question.id %>" value="4">
-            5. <input type="radio" name="<%= question.id %>" value="5"> <br>
+            1. <input class="list_answers" type="radio" name="<%= question.id %>" value="1">
+            2. <input class="list_answers" type="radio" name="<%= question.id %>" value="2">
+            3. <input class="list_answers" type="radio" name="<%= question.id %>" value="3">
+            4. <input class="list_answers" type="radio" name="<%= question.id %>" value="4">
+            5. <input class="list_answers" type="radio" name="<%= question.id %>" value="5"> <br>
         </li>
         <% end %>
         <br>
-        <input type="submit" value="Submit">
+        <input class="list_answers" type="submit" value="Submit">
       </form>
     </ul>
   </div>
