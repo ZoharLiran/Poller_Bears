@@ -53,8 +53,8 @@ SurveyApp.prototype = {
       } else if (data == "false") {
         $("#login_bar").show();
       }
-    }).fail(function() {
-
+    }).fail(function(data, errorMsg) {
+      console.log("Something weird happened in showing sidebar.")
     });
   },
 

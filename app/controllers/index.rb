@@ -7,11 +7,13 @@ get '/sessions' do
 end
 
 post '/sessions' do #login an existing user
-  @user = User.find_by_email(params[:email])
-  if @user.password == params[:password]
-    session[:user_id] = @user.id
+  user = User.login(params)
+  if user
+    session[:user_id] = user.id
+    status 200
+  else
+    status 400
   end
-  redirect "/surveys"
 end
 
 post '/users' do #create a new user
@@ -20,9 +22,10 @@ post '/users' do #create a new user
   @user.save!
   if @user
     session[:user_id] = @user.id
-    return true
+    status 200
+  else
+    status 400
   end
-  return false
 end
 
 before '/users/*' do
