@@ -106,6 +106,7 @@ button {
   color: red;
 }
 
+
 .survey_list li {
   padding: 5px 0 20px 0;
   border-bottom: 1px solid #CCE6FF;
@@ -114,6 +115,21 @@ button {
 .survey_list a {
   color: #FF9147;
 }
+
+.questions_list ul {
+  list-style: none;
+  color: red;
+}
+
+.questions_list li {
+  padding: 5px 0 20px 0;
+  border-bottom: 1px solid #CCE6FF;
+}
+
+.questions_list a {
+  color: #FF9147;
+}
+
 
 #result_graph {
   position:fixed;

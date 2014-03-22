@@ -40,7 +40,7 @@ end
 
 get '/surveys/:id' do #take specific survey
   @survey = Survey.find(params[:id])
-  @questions = Survey.questions
+  @questions = @survey.questions
   erb :survey
 end
 

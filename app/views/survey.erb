@@ -1,0 +1,20 @@
+<div class="container">
+<!--   <img src="/poller-bear.png"> -->
+
+  <div class="questions_list">
+    <ul>
+      <% @questions.each do |question| %>
+      <li>
+        <a href="/surveys/"><%= question.content %></a>
+        <br>
+        <input type="radio" name="1">1. <br>
+        <input type="radio" name="2">2. <br>
+        <input type="radio" name="3">3. <br>
+        <input type="radio" name="4">4. <br>
+        <input type="radio" name="5">5. <br>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+</div>
