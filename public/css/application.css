@@ -31,15 +31,20 @@ a {
   text-decoration: none;
 }
 
-input {
-  width: 100px;
+input {         /*should only apply to the login/logout input fields*/
+  width: 100%;
  }
 
-.create_survey {
+.create_survey {   /*applies to the input fields in the create survey form*/
   display: block;
   margin-left: 35%;
   width: 30%;
   margin-bottom: 5px;
+  }
+
+  .list_answers {   /*applies to the input fields in the answer survery form*/
+    width: 100px;
+    text-align: center;
   }
 
 button {
