@@ -76,8 +76,7 @@ SurveyApp.prototype = {
 
   clickAddQuestion: function(event) {
     event.preventDefault();
-    questionHtml = "<input class='create_survey' type='text' placeholder='question' name='question" + this.questionCount.toString() + "'>";
-    $("#questions_id").append(questionHtml);
+    $("#questions_id").append("<input class='create_survey' type='text' placeholder='question' name='question" + this.questionCount.toString() + "'>");
     this.questionCount++;
   }
 
