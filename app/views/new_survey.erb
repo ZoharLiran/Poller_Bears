@@ -1,0 +1,18 @@
+<div class="container">
+  <h1>Welcome! Let's create a new survey!</h1>
+  <p>Please enter a title and questions that can be answered on a 1-5 scale.</p>
+
+  <img src="/img/logo.jpg" alt="polar bear using a computer">
+
+  <form action="/surveys" method="post" id="survey_data">
+    <input type="text" placeholder="title" name="title">
+    <input type="text" placeholder="question" name="question">
+    <input type="submit" value="+ question">
+    <input type="submit" value="submit all">
+  </form>
+
+</div>
+
+<!--
+#pass params[:questions] that will be {1=>"the first question", 2=>"second question", etc}
+#pass params[:title] -->

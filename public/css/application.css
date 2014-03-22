@@ -8,12 +8,14 @@ h1 {
 p {
   font-family: sans-serif;
   color: #0000FF;
-
 }
 
 body {
+  background-image:url('/img/iceberg.jpg');
   background-color: #99CCFF;
   height: 100%;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 h3 {
@@ -29,6 +31,10 @@ a {
   text-decoration: none;
 }
 
+input {
+  width: 120px;
+}
+
 button {
   color: white;
   background-color: #3399FF;
@@ -38,67 +44,20 @@ button {
   text-decoration: none;
 }
 
+img {
+  padding: 10px;
+}
+
+/*TODO make the container background color transparent WHILE KEEPING EVERYTHING ELSE OPAQUE. Stupid nav bar and polar bear image want to be transparent SOOOO badly. Setting everything other than the container to opacity: 1; didn't work.*/
 
 .container {
   margin: 0 auto;
-  width: 72%;
+  width: 70%;
   height: 100%;
   padding: 40px 5px 100% 5px;
   background-color: #FFFFF3;
   color: #0000CC;
   text-align: center;
-
-}
-
-#fixed_nav {
-  position: fixed;
-  top: 0;
-  margin: 0;
-  width: 100%;
-  text-align: center;
-}
-
-#fixed_nav ul {
-  list-style: none;
-  float: right;
-  margin-right: 375px;
-}
-#fixed_nav li {
-  float: left;
-  padding: 5px;
-  background-color: #3399FF;
-  border-radius: 100px;
-  margin: 0 6px 0 6px;
-}
-
-#fixed_nav a {
-  color: white;
-}
-
-#login_bar {
-  position: fixed;
-  top: 0;
-  right: 10px;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  margin: 0;
-  padding: 0 10px;
-  float: left;
-  width: 150px;
-}
-
-#logout_bar {
-  position: fixed;
-  top: 0;
-  right: 10px;
-  bottom: 0;
-  left: 0;
-  overflow: auto;
-  margin: 0;
-  padding: 0 10px;
-  float: left;
-  width: 150px;
 }
 
 .survey_list ul {
@@ -129,20 +88,71 @@ button {
 
 .questions_list a {
   color: #FF9147;
-}
 
-
-#result_graph {
-  position:fixed;
-  top:10%;
-  left: 20%;
-  width: 75%; 
-  height: 400px; 
-  margin: 0 auto;
-  color: #FF944D;
 }
 
 .survey_list a:hover {
   background-color: #FF944D;
   color: white;
+}
+
+#fixed_nav {
+  position: fixed;
+  top: 0;
+  margin: 0;
+  width: 100%;
+  text-align: center;
+}
+
+#fixed_nav ul {
+  list-style: none;
+  float: right;
+  margin-right: 37%;
+}
+#fixed_nav li {
+  float: left;
+  padding: 5px;
+  background-color: #3399FF;
+  border-radius: 100px;
+  margin: 0 6px 0 6px;
+}
+
+#fixed_nav a {
+  color: white;
+}
+
+#login_bar {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 0 10px;
+  float: left;
+  width: 100px;
+}
+
+#logout_bar {
+  position: fixed;
+  top: 0;
+  right: 10px;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0;
+  padding: 0 10px;
+  float: left;
+  width: 150px;
+}
+
+#result_graph {
+  position:fixed;
+  top:10%;
+  left: 20%;
+  width: 75%;
+  height: 400px;
+  margin: 0 auto;
+  color: #FF944D;
 }

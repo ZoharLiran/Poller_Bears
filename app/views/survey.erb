@@ -1,18 +1,18 @@
 <div class="container">
-<!--   <img src="/poller-bear.png"> -->
+<img src="/img/logo.jpg" alt="polar bear using a computer">
 
   <div class="questions_list">
-    <h2>Survey <%= @survey.title %></h2>
+    <h2>Survey: <%= @survey.title %></h2>
     <ul>
       <form action="/surveys/<%= @survey.id %>" method="post">
         <% @questions.each do |question| %>
         <li>
           <a href="/surveys/"><%= question.content %></a>
           <br>
-            1. <input type="radio" name="<%= question.id %>" value="1"> 
-            2. <input type="radio" name="<%= question.id %>" value="2"> 
-            3. <input type="radio" name="<%= question.id %>" value="3"> 
-            4. <input type="radio" name="<%= question.id %>" value="4"> 
+            1. <input type="radio" name="<%= question.id %>" value="1">
+            2. <input type="radio" name="<%= question.id %>" value="2">
+            3. <input type="radio" name="<%= question.id %>" value="3">
+            4. <input type="radio" name="<%= question.id %>" value="4">
             5. <input type="radio" name="<%= question.id %>" value="5"> <br>
         </li>
         <% end %>
