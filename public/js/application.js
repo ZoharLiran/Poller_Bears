@@ -33,7 +33,7 @@ var SurveyApp = function() {
   // initialize
   $("#login_bar").hide();
   $("#logout_bar").hide();
-  this.showSidebarUserStatus();
+  this.showSidebar();
 };
 
 SurveyApp.prototype = {
@@ -43,7 +43,7 @@ SurveyApp.prototype = {
     $('#logout_bar').click(this.clickSubmitLogout);
   },
 
-  showSidebarUserStatus: function() {
+  showSidebar: function() {
     $.ajax({
       url: "/sessions",
       type: "GET"
