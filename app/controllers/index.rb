@@ -2,6 +2,10 @@ get '/' do
   redirect "/surveys"
 end
 
+get '/sessions' do
+  return logged_in?.to_s
+end
+
 post '/sessions' do #login an existing user
   @user = User.find_by_email(params[:email])
   if @user.password == params[:password]
@@ -60,7 +64,7 @@ get '/surveys/:id/results' do
   @results = {}
   current_survey = Survey.find(params[:id])
   questions = current_survey.questions
-  questions.each_with_index do |question, index|  
+  questions.each_with_index do |question, index|
     question_id = question.id
     @results[index] = question.answers_distribution
   end

@@ -1,16 +1,36 @@
 $(document).ready(function() {
   surveyApp = new SurveyApp();
   surveyApp.addListeners();
-  // $("#login_bar").
+  // surveyApp.checkLoggedIn();
 });
 
-var SurveyApp = function() {};
+var SurveyApp = function() {
+  // initialize
+  $("#login_bar").hide();
+  $("#logout_bar").hide();
+  this.checkLoggedIn();
+};
 
 SurveyApp.prototype = {
   addListeners: function() {
     $('form[name="create_account"]').submit(surveyApp.clickSubmitSignup);
     $('form[name="login"]').submit(surveyApp.clickSubmitLogin);
     $('#logout_bar').click(surveyApp.clickSubmitLogout);
+  },
+
+  checkLoggedIn: function() {
+    $.ajax({
+      url: "/sessions",
+      type: "GET"
+    }).done(function(data) {
+      if (data == "true") {
+        $("#logout_bar").show();
+      } else if (data == "false") {
+        $("#login_bar").show();
+      }
+    }).fail(function() {
+
+    });
   },
 
   clickSubmitSignup: function(event) {
@@ -21,8 +41,8 @@ SurveyApp.prototype = {
       type: "POST",
       data: formData
     }).done(function(data) {
-      $("#login_bar").hide("slow");
-      $("#logout_bar").show("slow");
+      $("#login_bar").hide("fast");
+      $("#logout_bar").show("fast");
     }).fail(function(data, errorMsg) {
       alert("Signup Error");
     });
@@ -36,8 +56,8 @@ SurveyApp.prototype = {
       type: "POST",
       data: formData
     }).done(function(data) {
-      $("#login_bar").hide("slow");
-      $("#logout_bar").show("slow");
+      $("#login_bar").hide("fast");
+      $("#logout_bar").show("fast");
     }).fail(function(data, errorMsg) {
       alert("Login Error");
     });
@@ -48,8 +68,8 @@ SurveyApp.prototype = {
       url: "/sessions",
       type: "delete"
     }).done(function(data) {
-      $("#logout_bar").hide("slow");
-      $("#login_bar").show("slow");
+      $("#logout_bar").hide("fast");
+      $("#login_bar").show("fast");
     });
   }
 
