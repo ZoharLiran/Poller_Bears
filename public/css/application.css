@@ -8,10 +8,10 @@ h1 {
 p {
   font-family: sans-serif;
   color: #0000FF;
-
 }
 
 body {
+  background-image:url('/img/iceberg.jpg');
   background-color: #99CCFF;
   height: 100%;
 }
@@ -136,8 +136,8 @@ button {
   position:fixed;
   top:10%;
   left: 20%;
-  width: 75%; 
-  height: 400px; 
+  width: 75%;
+  height: 400px;
   margin: 0 auto;
   color: #FF944D;
 }
