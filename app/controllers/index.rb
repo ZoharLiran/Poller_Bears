@@ -38,11 +38,16 @@ get '/surveys' do #home page
   erb :surveys
 end
 
+get '/surveys/new' do #go to the page to create a new survey
+  erb :new_survey
+end
+
 get '/surveys/:id' do #take specific survey
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
   erb :survey
 end
+
 
 post '/surveys/:id' do #post data from specific survey
   p params
@@ -60,7 +65,7 @@ get '/surveys/:id/results' do
   @results = {}
   current_survey = Survey.find(params[:id])
   questions = current_survey.questions
-  questions.each_with_index do |question, index|  
+  questions.each_with_index do |question, index|
     question_id = question.id
     @results[index] = question.answers_distribution
   end
@@ -68,13 +73,10 @@ get '/surveys/:id/results' do
   erb :results
 end
 
-get '/surveys/new' do #go to the page to create a new survey
-
-  erb :new_survey
-end
 
 #pass params[:questions] that will be {1=>"the first question", 2=>"second question", etc}
 #pass params[:title]
+
 post '/surveys' do #create the new survey
   current_user = User.find(session[:user_id])
   current_survey = current_user.surveys.create(params[:survey_title])
