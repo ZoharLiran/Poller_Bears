@@ -14,8 +14,8 @@
 <body>
   <header>
     <%= erb :_navbar %>
-    <%= erb :_loginbar if !logged_in? %>
-    <%= erb :_logout if logged_in? %>
+    <%= erb :_loginbar %>
+    <%= erb :_logout %>
   </header>
   <%= yield %>
 </body>

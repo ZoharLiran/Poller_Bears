@@ -2,6 +2,10 @@ get '/' do
   redirect "/surveys"
 end
 
+get '/sessions' do
+  return logged_in?.to_s
+end
+
 post '/sessions' do #login an existing user
   @user = User.find_by_email(params[:email])
   if @user.password == params[:password]
