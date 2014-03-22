@@ -32,8 +32,15 @@ a {
 }
 
 input {
-  width: 100%;
-}
+  width: 100px;
+ }
+
+.create_survey {
+  display: block;
+  margin-left: 35%;
+  width: 30%;
+  margin-bottom: 5px;
+  }
 
 button {
   color: white;
@@ -107,7 +114,7 @@ img {
 #fixed_nav ul {
   list-style: none;
   float: right;
-  margin-right: 390px;
+  margin-right: 42%;
 }
 #fixed_nav li {
   float: left;
