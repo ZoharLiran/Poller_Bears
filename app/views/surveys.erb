@@ -1,18 +1,17 @@
 <div class="container">
 
-  <h1>Team Poller Bears Presents: SURVEYS!</h1>
-  <p>Sign-up for an account in order to create a new survey.</p>
-  <p>No account is needed to take an existing survey. Just dive in!</p>
-  <img src="/img/logo.jpg" alt="polar bear using a computer">
+    <h1>Team Poller Bears Presents: SURVEYS!</h1>
+    <p>Sign-up for an account in order to create a new survey.</p>
+    <p>No account is needed to take an existing survey. Just dive in!</p>
+    <img src="/img/logo.jpg" alt="polar bear using a computer">
 
-<!--   Linked list of surveys -->
+  <!--   Linked list of surveys -->
 
-  <div class="survey_list">
-    <ul>
-      <% @surveys.each do |survey| %>
-      <li><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></li>
-      <% end %>
-    </ul>
-  </div>
-
+    <div class="survey_list">
+      <ul>
+        <% @surveys.each do |survey| %>
+        <li><a href="/surveys/<%= survey.id %>"><%= survey.title %></a></li>
+        <% end %>
+      </ul>
+    </div>
 </div>
