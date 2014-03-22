@@ -1,7 +1,6 @@
 $(document).ready(function() {
   surveyApp = new SurveyApp();
   surveyApp.addListeners();
-  // surveyApp.checkLoggedIn();
 });
 
 var SurveyApp = function() {
