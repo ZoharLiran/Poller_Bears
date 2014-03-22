@@ -33,17 +33,17 @@ var SurveyApp = function() {
   // initialize
   $("#login_bar").hide();
   $("#logout_bar").hide();
-  this.checkLoggedIn();
+  this.showSidebar();
 };
 
 SurveyApp.prototype = {
   addListeners: function() {
-    $('form[name="create_account"]').submit(surveyApp.clickSubmitSignup);
-    $('form[name="login"]').submit(surveyApp.clickSubmitLogin);
-    $('#logout_bar').click(surveyApp.clickSubmitLogout);
+    $('form[name="create_account"]').submit(this.clickSubmitSignup);
+    $('form[name="login"]').submit(this.clickSubmitLogin);
+    $('#logout_bar').click(this.clickSubmitLogout);
   },
 
-  checkLoggedIn: function() {
+  showSidebar: function() {
     $.ajax({
       url: "/sessions",
       type: "GET"
@@ -53,8 +53,8 @@ SurveyApp.prototype = {
       } else if (data == "false") {
         $("#login_bar").show();
       }
-    }).fail(function() {
-
+    }).fail(function(data, errorMsg) {
+      console.log("Something weird happened in showing sidebar.")
     });
   },
 
