@@ -38,9 +38,9 @@ var SurveyApp = function() {
 
 SurveyApp.prototype = {
   addListeners: function() {
-    $('form[name="create_account"]').submit(this.clickSubmitSignup);
-    $('form[name="login"]').submit(this.clickSubmitLogin);
-    $('#logout_bar').click(this.clickSubmitLogout);
+    $("form[name='create_account']").on("submit", this.clickSubmitSignup);
+    $("form[name='login']").on("submit", this.clickSubmitLogin);
+    $("#logout_bar").on("click", this.clickSubmitLogout);
     $("#add_question").on("click", this.clickAddQuestion);
   },
 
