@@ -16,7 +16,7 @@ SurveyApp.prototype = {
     $("form[name='create_account']").on("submit", this.clickSubmitSignup);
     $("form[name='login']").on("submit", this.clickSubmitLogin);
     $("#logout_bar").on("click", this.clickSubmitLogout);
-    $("#add_question").on("click", this.clickAddQuestion.bind(this);
+    $("#add_question").on("click", this.clickAddQuestion.bind(this));
   },
 
   showSidebar: function() {
