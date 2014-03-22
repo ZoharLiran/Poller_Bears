@@ -83,7 +83,7 @@ end
 
 post '/surveys' do #create the new survey
   current_user = User.find(session[:user_id])
-  current_survey = current_user.surveys.create(params[:survey_title])
+  current_survey = current_user.surveys.create(title: params[title])
   params[:questions].each_value{|value|
     current_survey.questions.create(content: value)
   }
