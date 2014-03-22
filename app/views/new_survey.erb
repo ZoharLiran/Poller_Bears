@@ -1,13 +1,13 @@
 <div class="container">
   <h1>Welcome! Let's create a new survey!</h1>
-  <p>Please enter a title, 5 questions and 5 possible answers per question.</p>
+  <p>Please enter a title, several questions and up to 5 possible answers per question.</p>
 
   <img src="/img/logo.jpg" alt="polar bear using a computer">
 
   <form action="/surveys" method="post">
     <input type="text" placeholder="title" name="survey[title]">
-    <input type="text" placeholder="questions" name="survey[questions]">
-    <input type="text" placeholder="answers" name="survey[answers]">
+    <input type="text" placeholder="question1" name="survey[questions]">
+    <input type="text" placeholder="answers1" name="survey[answers]">
     <input type="submit" value="submit">
   </form>
 

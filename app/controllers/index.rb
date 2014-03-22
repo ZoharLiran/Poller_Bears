@@ -31,7 +31,7 @@ before '/users/*' do
   end
 end
 
-get '/users/:id/surveys' do
+get '/users/:id/surveys' do      # User Profile? List of user's created surveys?
   current_user = User.find(params[:id])
   @surveys = current_user.surveys
   erb :surveys
