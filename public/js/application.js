@@ -3,47 +3,47 @@ $(document).ready(function() {
   surveyApp.addListeners();
 });
 
-$("input[value='add_question']").on('click', function(){
-  event.preventDefault;
-  var title = $("input[name='title']").val();
-  if (title!=null)
-  {
-    $("#survey_data").prepend("<p id='title'>"+title+"</p>");
-    $("input[name='title']").remove()
-  }
+// $("input[value='add_question']").on('click', function(){
+//   event.preventDefault;
+//   var title = $("input[name='title']").val();
+//   if (title!=null)
+//   {
+//     $("#survey_data").prepend("<p id='title'>"+title+"</p>");
+//     $("input[name='title']").remove()
+//   }
 
-  var question = $("input[name='question']").val();
-  {
-    #("#survey_data").insertAfter("<p>"+question+"</p>")
-  }
+//   var question = $("input[name='question']").val();
+//   {
+//     #("#survey_data").insertAfter("<p>"+question+"</p>")
+//   }
 
-  var questions = []
-  var question = $("input[name='question']").val();
-  questions.push(question)
+//   var questions = []
+//   var question = $("input[name='question']").val();
+//   questions.push(question)
 
 
-  $.ajax({
-    url: "/surveys",
-    type: "POST",
-    data: {title: title, question: question}
-  })
-})
+//   $.ajax({
+//     url: "/surveys",
+//     type: "POST",
+//     data: {title: title, question: question}
+//   })
+// })
 
 var SurveyApp = function() {
   // initialize
   $("#login_bar").hide();
   $("#logout_bar").hide();
-  this.checkLoggedIn();
+  this.showSidebarUserStatus();
 };
 
 SurveyApp.prototype = {
   addListeners: function() {
-    $('form[name="create_account"]').submit(surveyApp.clickSubmitSignup);
-    $('form[name="login"]').submit(surveyApp.clickSubmitLogin);
-    $('#logout_bar').click(surveyApp.clickSubmitLogout);
+    $('form[name="create_account"]').submit(this.clickSubmitSignup);
+    $('form[name="login"]').submit(this.clickSubmitLogin);
+    $('#logout_bar').click(this.clickSubmitLogout);
   },
 
-  checkLoggedIn: function() {
+  showSidebarUserStatus: function() {
     $.ajax({
       url: "/sessions",
       type: "GET"
