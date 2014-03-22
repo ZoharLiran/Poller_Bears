@@ -2,19 +2,24 @@
 <img src="/img/logo.jpg" alt="polar bear using a computer">
 
   <div class="questions_list">
+    <h2>Survey <%= @survey.title %></h2>
     <ul>
-      <% @questions.each do |question| %>
-      <li>
-        <a href="/surveys/"><%= question.content %></a>
-        <br>
-        <input type="radio" name="1">1.
-        <input type="radio" name="2">2.
-        <input type="radio" name="3">3.
-        <input type="radio" name="4">4.
-        <input type="radio" name="5">5. <br>
-      </li>
-      <% end %>
+      <form action="/surveys/<%= @survey.id %>" method="post">
+        <% @questions.each do |question| %>
+        <li>
+          <a href="/surveys/"><%= question.content %></a>
+          <br>
+            1. <input type="radio" name="<%= question.id %>" value=1/>
+            2. <input type="radio" name="<%= question.id %>" value=2/>
+            3. <input type="radio" name="<%= question.id %>" value=3/>
+            4. <input type="radio" name="<%= question.id %>" value=4/>
+            5. <input type="radio" name="<%= question.id %>" value=5/> <br>
+        </li>
+        <% end %>
+        <input type="submit" value="Submit">
+      </form>
     </ul>
   </div>
 
 </div>
+

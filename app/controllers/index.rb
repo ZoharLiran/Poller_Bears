@@ -45,6 +45,7 @@ get '/surveys/:id' do #take specific survey
 end
 
 post '/surveys/:id' do #post data from specific survey
+  p params
   answers = params[:answers] #{question_id=>answer, 2=>answer, etc...}
   #first user (id=1) is 'anonymous'
   user_id = session[:user_id] ? session[:user_id] : 1
