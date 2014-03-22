@@ -7,8 +7,10 @@
 
   <form action="/surveys" method="post" id="survey_data">
     <input class="create_survey" type="text" placeholder="title" name="title">
-    <input class="create_survey" type="text" placeholder="question" name="question(num)"> <!-- Needs to be question1, and each following question needs a unique name.  -->
-    <input class="list_answers" type="button" value="+ question">
+    <div id="questions_id">
+      <input class="create_survey" type="text" placeholder="question" name="question0">
+    </div>
+    <button id="add_question">Add Question</button>
     <input class="list_answers" type="submit" value="submit all">
   </form>
 

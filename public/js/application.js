@@ -3,44 +3,20 @@ $(document).ready(function() {
   surveyApp.addListeners();
 });
 
-//////////////////////////////////////////////////////////////////////
-$("input[value='add_question']").on('click', function(){
-  event.preventDefault;
-  var title = $("input[name='title']").val();
-  if (title!=null)
-  {
-    $("#survey_data").prepend("<p id='title'>"+title+"</p>");
-    $("input[name='title']").remove()
-  }
-  var question = $("input[name='question']").val();
-  {
-    #("#survey_data").insertAfter("<p>"+question+"</p>")
-  }
-  // var questions = []
-  // var question = $("input[name='question']").val();
-  // questions.push(question)
-  $.ajax({
-    url: "/surveys",
-    type: "POST",
-    data: {title: title, question: question}
-  })
-})
-
-//////////////////////////////////////////////////////////////////////
-
-
 var SurveyApp = function() {
   // initialize
   $("#login_bar").hide();
   $("#logout_bar").hide();
   this.showSidebar();
+  this.questionCount = 1;
 };
 
 SurveyApp.prototype = {
   addListeners: function() {
-    $('form[name="create_account"]').submit(this.clickSubmitSignup);
-    $('form[name="login"]').submit(this.clickSubmitLogin);
-    $('#logout_bar').click(this.clickSubmitLogout);
+    $("form[name='create_account']").on("submit", this.clickSubmitSignup);
+    $("form[name='login']").on("submit", this.clickSubmitLogin);
+    $("#logout_bar").on("click", this.clickSubmitLogout);
+    $("#add_question").on("click", this.clickAddQuestion.bind(this);
   },
 
   showSidebar: function() {
@@ -96,6 +72,13 @@ SurveyApp.prototype = {
       $("#logout_bar").hide("fast");
       $("#login_bar").show("fast");
     });
+  },
+
+  clickAddQuestion: function(event) {
+    event.preventDefault();
+    questionHtml = "<input class='create_survey' type='text' placeholder='question' name='question" + this.questionCount.toString() + "'>";
+    $("#questions_id").append(questionHtml);
+    this.questionCount++;
   }
 
 };
