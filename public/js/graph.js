@@ -1,69 +1,64 @@
 $(function () {
+        var size = function(results)
+        {
+            var count = 0;
+            for(var prop in results)
+            {
+                count++;
+            }
+            return count;
+        }
+        var numOfQuestions = size(results) - 1;
+        categories = []
+        for (var i = 1; i <= numOfQuestions; i++)
+        {
+            categories.push(i)
+        }
+
+        var series = []
+        var numOfAnswers = results[0].length;
+        for (var i=0; i<numOfAnswers; i++)
+        {
+            series[i] = {name:"Answer "+(i+1)}
+            series[i].data = []
+            for (var j=0; j<numOfQuestions; j++)
+            {
+                series[i].data.push(results[j][i]) 
+            }
+        }
         $('#result_graph').highcharts({
             chart: {
-                type: 'bar'
+                type: 'column'
             },
             title: {
-                text: results.title
+                text: title
             },
             subtitle: {
                 text: 'Poller Bears'
             },
             xAxis: {
-                categories: ['1', '2', '3', '4', '5'],
-                title: {
-                    text: null
-                }
+                categories: categories
             },
             yAxis: {
                 min: 0,
                 title: {
-                    text: 'Poll Answers',
-                    align: 'high'
-                },
-                labels: {
-                    overflow: 'justify'
+                    text: 'Number of replies'
                 }
             },
             tooltip: {
-                valueSuffix: ' '
+                headerFormat: '<span style="font-size:10px">{point.key}</span><table>',
+                pointFormat: '<tr><td style="color:{series.color};padding:0">{series.name}: </td>' +
+                    '<td style="padding:0"><b>{point.y:.1f} mm</b></td></tr>',
+                footerFormat: '</table>',
+                shared: true,
+                useHTML: true
             },
             plotOptions: {
-                bar: {
-                    dataLabels: {
-                        enabled: true
-                    }
+                column: {
+                    pointPadding: 0.2,
+                    borderWidth: 0
                 }
             },
-            legend: {
-                layout: 'vertical',
-                align: 'right',
-                verticalAlign: 'top',
-                x: -40,
-                y: 100,
-                floating: true,
-                borderWidth: 1,
-                backgroundColor: '#FFFFFF',
-                shadow: true
-            },
-            credits: {
-                enabled: false
-            },
-            series: [{
-                name: 'Answer 1',
-                data: [results["0"]["1"], results["0"]["2"], results["0"]["3"], results["0"]["4"], results["0"]["5"]]
-            }, {
-                name: 'Answer 2',
-                data: [results["1"]["1"], results["1"]["2"], results["1"]["3"], results["1"]["4"], results["1"]["5"]]
-            }, {
-                name: 'Answer 3',
-                data: [results["2"]["1"], results["2"]["2"], results["2"]["3"], results["2"]["4"], results["2"]["5"]]
-            }, {
-                name: 'Answer 4',
-                data: [results["3"]["1"], results["3"]["2"], results["3"]["3"], results["3"]["4"], results["3"]["5"]]
-            }, {
-                name: 'Answer 5',
-                data: [results["4"]["1"], results["4"]["2"], results["4"]["3"], results["4"]["4"], results["4"]["5"]]
-            }]
+            series: series
         });
     });

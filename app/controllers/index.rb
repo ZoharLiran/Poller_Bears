@@ -45,26 +45,27 @@ get '/surveys/:id' do #take specific survey
 end
 
 post '/surveys/:id' do #post data from specific survey
-  p params
-  answers = params[:answers] #{question_id=>answer, 2=>answer, etc...}
+  answers = params #{question_id=>answer, 2=>answer, etc...}
   #first user (id=1) is 'anonymous'
   user_id = session[:user_id] ? session[:user_id] : 1
   answers.each_pair{|key,value|
-    current_question = Question.find(key)
-    current_question.choices.create(user_id: user_id, choice: value)
+    current_question = key.to_i != 0 ? Question.find(key.to_i) : nil
+    if current_question
+      current_question.choices.create(user_id: user_id, choice: value)
+    end
   }
   redirect "/surveys/#{params[:id]}/results"
 end
 
 get '/surveys/:id/results' do
-  @results = {}
+  @results = []
   current_survey = Survey.find(params[:id])
   questions = current_survey.questions
   questions.each_with_index do |question, index|  
     question_id = question.id
-    @results[index] = question.answers_distribution
+    @results << question.answers_distribution
   end
-  @results[:title] = current_survey.title
+  @survey_title = current_survey.title
   erb :results
 end
 

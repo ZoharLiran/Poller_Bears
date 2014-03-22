@@ -4,11 +4,10 @@ class Question < ActiveRecord::Base
   belongs_to :survey
 
   def answers_distribution
-    answers = self.choices
-    result = {1 => 0, 2=> 0, 3=> 0, 4=> 0, 5=> 0}
-    answers.each do |answer|
-      answer_choice = answer.choice
-      result[answer_choice] += 1
+    choices = self.choices
+    result =  [0, 0, 0, 0, 0]
+    choices.each do |choice|
+      result[choice.choice - 1] += 1
     end
     result
   end
