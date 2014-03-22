@@ -117,6 +117,7 @@ button {
 }
 
 .questions_list ul {
+  margin-top: 5%;
   list-style: none;
   color: red;
 }
