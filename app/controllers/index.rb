@@ -31,7 +31,7 @@ before '/users/*' do
   end
 end
 
-get '/users/:id/surveys' do
+get '/users/:id/surveys' do      # User Profile? List of user's created surveys?
   current_user = User.find(params[:id])
   @surveys = current_user.surveys
   erb :surveys
@@ -83,7 +83,7 @@ end
 
 post '/surveys' do #create the new survey
   current_user = User.find(session[:user_id])
-  current_survey = current_user.surveys.create(params[:survey_title])
+  current_survey = current_user.surveys.create(title: params[title])
   params[:questions].each_value{|value|
     current_survey.questions.create(content: value)
   }

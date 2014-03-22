@@ -32,7 +32,7 @@ a {
 }
 
 input {
-  width: 100px;
+  width: 120px;
 }
 
 button {
@@ -107,7 +107,7 @@ img {
 #fixed_nav ul {
   list-style: none;
   float: right;
-  margin-right: 390px;
+  margin-right: 37%;
 }
 #fixed_nav li {
   float: left;
