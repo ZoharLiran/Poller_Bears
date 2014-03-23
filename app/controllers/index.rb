@@ -49,13 +49,6 @@ get '/surveys/new' do #go to the page to create a new survey
   erb :new_survey
 end
 
-get '/surveys/:id' do #take specific survey
-  @survey = Survey.find(params[:id])
-  @questions = @survey.questions
-  erb :survey
-end
-
-
 post '/surveys/:id' do #post data from specific survey
   answers = params #{question_id=>answer, 2=>answer, etc...}
   #first user (id=1) is 'anonymous'
@@ -97,8 +90,19 @@ get '/surveys/:id/edit' do #edit a specific survey
   erb :edit_survey
 end
 
-put '/surveys' do #Goes back to main surveys UPDATE Survey
-
+put '/surveys/:id' do #Goes back to main surveys UPDATE Survey
+  survey = Survey.find(params[:id])
+  if !survey.nil? && logged_in?
+    if survey.user_id == current_user.id
+      survey.questions.destroy_all
+      params[:questions].each { |key, value| survey.questions << Question.new(content: value) }
+      status 200
+    else
+      status 400
+    end
+  else
+    status 400
+  end
 end
 
 delete '/sessions' do
