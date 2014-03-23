@@ -20,13 +20,10 @@
       </form>
     </ul>
   </div>
-<!-- <<<<<<< HEAD -->
-  <button id="edit_survey_button" type="button">Edit survey</button>
-<!-- ======= -->
   <% if @allow_edit %>
-    <a href="/surveys/<%= @survey.id %>/edit"><button type="button">Edit survey</button></a>
+    <button id="edit_survey_button" type="button">Edit survey</button>
+    <button id="delete_survey_button" type="button">Delete survey</button>
   <% end %>
-<!-- >>>>>>> master -->
   <a href="/surveys/<%= @survey.id %>/results"><button type="button">View results</button></a>
 
 </div>

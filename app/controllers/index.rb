@@ -113,7 +113,7 @@ end
 
 delete "/surveys/:id" do
   Survey.find(params[:id]).destroy
-  redirect "/users/#{session[:user_id]}/surveys"
+  return current_user.id.to_s
 end
 
 delete '/sessions' do
