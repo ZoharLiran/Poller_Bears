@@ -49,6 +49,13 @@ get '/surveys/new' do #go to the page to create a new survey
   erb :new_survey
 end
 
+get '/surveys/:id' do #take specific survey
+  @survey = Survey.find(params[:id])
+  @questions = @survey.questions
+  erb :survey
+end
+
+
 post '/surveys/:id' do #post data from specific survey
   answers = params #{question_id=>answer, 2=>answer, etc...}
   #first user (id=1) is 'anonymous'
@@ -82,12 +89,6 @@ post '/surveys' do #create the new survey
     current_user.surveys << survey
     redirect "/surveys/#{survey.id}"
   end
-end
-
-get '/surveys/:id/edit' do #edit a specific survey
-  @survey = Survey.find(params[:id])
-  @questions = @survey.questions
-  erb :edit_survey
 end
 
 put '/surveys/:id' do #Goes back to main surveys UPDATE Survey
