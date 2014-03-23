@@ -29,13 +29,12 @@ post '/users' do #create a new user
 end
 
 before '/users/*' do
-  if !session[:user_id]
+  if !logged_in?
     redirect '/'
   end
 end
 
 get '/users/:id/surveys' do      # User Profile? List of user's created surveys?
-  current_user = User.find(params[:id])
   @surveys = current_user.surveys
   erb :surveys
 end
@@ -46,6 +45,7 @@ get '/surveys' do #home page
 end
 
 get '/surveys/new' do #go to the page to create a new survey
+  redirect '/' if !logged_in?
   erb :new_survey
 end
 
@@ -81,17 +81,14 @@ get '/surveys/:id/results' do
   erb :results
 end
 
-
-#pass params[:questions] that will be {1=>"the first question", 2=>"second question", etc}
-#pass params[:title]
-
 post '/surveys' do #create the new survey
-  current_user = User.find(session[:user_id])
-  current_survey = current_user.surveys.create(title: params[title])
-  params[:questions].each_value{|value|
-    current_survey.questions.create(content: value)
-  }
-  redirect "/users/#{current_user.id}/surveys"
+  survey = Survey.new(title: params[:title])
+  params[:questions].each { |key, value| survey.questions << Question.new(content: value) }
+  survey.save!
+  if survey
+    current_user.surveys << survey
+    redirect "/surveys/#{survey.id}"
+  end
 end
 
 get '/surveys/:id/edit' do #edit a specific survey
@@ -104,9 +101,7 @@ put '/surveys' do #Goes back to main surveys UPDATE Survey
 
 end
 
-
-
 delete '/sessions' do
   session.clear
-  return true
+  status 200
 end

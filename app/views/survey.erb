@@ -7,7 +7,8 @@
       <form action="/surveys/<%= @survey.id %>" method="post">
         <% @questions.each do |question| %>
         <li>
-          <a href="/surveys"><%= question.content %></a>
+          <%= question.content %>
+
           <br>
             1. <input class="list_answers" type="radio" name="<%= question.id %>" value="1">
             2. <input class="list_answers" type="radio" name="<%= question.id %>" value="2">
