@@ -35,6 +35,7 @@ a {
 
 img {
   padding: 10px;
+  border-radius: 30px;
 }
 
 input {         /*should only apply to the login/logout input fields*/
@@ -90,6 +91,8 @@ button {
   background-color: #FFFFF3;
   color: #0000CC;
   text-align: center;
+  /*opacity: 0.8;*/
+  background-color:rgba(255,255,255,0.5);
 }
 
 .survey_list ul {           /* surveys page (homepage) */
@@ -103,7 +106,7 @@ button {
 }
 
 .survey_list a {            /* surveys page (homepage) */
-  color: #FF9147;
+  color: darkblue;
 }
 
 .survey_list a:hover {       /* surveys page (homepage) */
@@ -133,6 +136,7 @@ button {
   left: 50%;
   margin-left: -200px;
   text-align: center;
+  opacity: 1;
 }
 
 #fixed_nav ul {          /* top nav bar*/
@@ -193,6 +197,7 @@ button {
   height: 400px;
   margin: 0 auto;
   color: #FF944D;
+  opacity: 0.8;
 }
 
 .footer {
