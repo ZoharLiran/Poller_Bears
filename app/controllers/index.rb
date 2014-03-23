@@ -52,6 +52,11 @@ end
 get '/surveys/:id' do #take specific survey
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
+  if @survey.user_id == session[:user_id]
+    @allow_edit = true
+  else
+    @allow_edit = false
+  end
   erb :survey
 end
 
@@ -104,6 +109,11 @@ put '/surveys/:id' do #Goes back to main surveys UPDATE Survey
   else
     status 400
   end
+end
+
+delete "/surveys/:id" do
+  Survey.find(params[:id]).destroy
+  redirect "/users/#{session[:user_id]}/surveys"
 end
 
 delete '/sessions' do

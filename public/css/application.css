@@ -68,7 +68,7 @@ input {         /*should only apply to the login/logout input fields*/
   color: darkblue;
 }
 
-.edit_button {           /* survey/:id/edit page*/
+.edit_button, #delete_survey {           /* survey/:id/edit page*/
   width: 20%;
 }
 
