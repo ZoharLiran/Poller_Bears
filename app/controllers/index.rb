@@ -45,6 +45,7 @@ get '/surveys' do #home page
 end
 
 get '/surveys/new' do #go to the page to create a new survey
+  redirect '/' if !logged_in?
   erb :new_survey
 end
 
@@ -82,7 +83,7 @@ end
 
 post '/surveys' do #create the new survey
   survey = Survey.new(title: params[:title])
-  params[:questions].each { |question| survey.questions << Question.new(content: question) }
+  params[:questions].each { |key, value| survey.questions << Question.new(content: value) }
   survey.save!
   if survey
     current_user.surveys << survey
