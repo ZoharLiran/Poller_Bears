@@ -1,5 +1,5 @@
 <div class="container">
-<h1>Survey: <%= @survey.title %></h1>
+<h1>Survey: <div id="title"><%= @survey.title %></div></h1>
 <img src="/img/logo.jpg" alt="polar bear using a computer">
 
   <div class="questions_list">
@@ -7,7 +7,7 @@
       <form action="/surveys/<%= @survey.id %>" method="post">
         <% @questions.each do |question| %>
         <li>
-          <p><%= question.content %></p>
+          <p><div class="question"><%= question.content %></div></p>
             1. <input class="list_answers" type="radio" name="<%= question.id %>" value="1">
             2. <input class="list_answers" type="radio" name="<%= question.id %>" value="2">
             3. <input class="list_answers" type="radio" name="<%= question.id %>" value="3">
@@ -21,7 +21,8 @@
     </ul>
   </div>
   <% if @allow_edit %>
-    <a href="/surveys/<%= @survey.id %>/edit"><button type="button">Edit survey</button></a>
+    <button id="edit_survey_button" type="button">Edit survey</button>
+    <button id="delete_survey_button" type="button">Delete survey</button>
   <% end %>
   <a href="/surveys/<%= @survey.id %>/results"><button type="button">View results</button></a>
 

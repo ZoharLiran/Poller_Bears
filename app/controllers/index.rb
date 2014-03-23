@@ -96,30 +96,24 @@ post '/surveys' do #create the new survey
   end
 end
 
-get '/surveys/:id/edit' do #edit a specific survey
-  @survey = Survey.find(params[:id])
-  @questions = @survey.questions
-  erb :edit_survey    
-end
-
 put '/surveys/:id' do #Goes back to main surveys UPDATE Survey
-  user_id = session[:user_id] ? session[:user_id] : 1
-  current_survey = Survey.find(params[:id])
-  current_survey.questions.each{|question|
-    if params.has_key?(question.id.to_s)
-      question.content = params[question.id.to_s]
-      question.save
+  survey = Survey.find(params[:id])
+  if !survey.nil? && logged_in?
+    if survey.user_id == current_user.id
+      survey.questions.destroy_all
+      params[:questions].each { |key, value| survey.questions << Question.new(content: value) }
+      status 200
     else
-      question.destroy
+      status 400
     end
-  }
-  current_survey.save
-  redirect "/surveys/#{params[:id]}"
+  else
+    status 400
+  end
 end
 
 delete "/surveys/:id" do
   Survey.find(params[:id]).destroy
-  redirect "/users/#{session[:user_id]}/surveys"
+  return current_user.id.to_s
 end
 
 delete '/sessions' do
