@@ -1,13 +1,13 @@
 <div class="container">
+<h1>Survey: <%= @survey.title %></h1>
 <img src="/img/logo.jpg" alt="polar bear using a computer">
 
   <div class="questions_list">
-    <h2>Survey: <%= @survey.title %></h2>
     <ul>
       <form action="/surveys/<%= @survey.id %>" method="post">
         <% @questions.each do |question| %>
         <li>
-          <a href="/surveys/"><%= question.content %></a>
+          <a href="/surveys"><%= question.content %></a>
           <br>
             1. <input class="list_answers" type="radio" name="<%= question.id %>" value="1">
             2. <input class="list_answers" type="radio" name="<%= question.id %>" value="2">
@@ -21,6 +21,7 @@
       </form>
     </ul>
   </div>
+  <a href="/surveys/<%= @survey.id %>/edit"><button type="button">Edit survey</button></a>
+  <a href="/surveys/<%= @survey.id %>/results"><button type="button">View results</button></a>
 
 </div>
-

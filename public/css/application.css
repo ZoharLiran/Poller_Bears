@@ -31,6 +31,7 @@ a {
   text-decoration: none;
 }
 
+
 input {         /*should only apply to the login/logout input fields*/
   width: 100%;
  }
@@ -42,16 +43,34 @@ input {         /*should only apply to the login/logout input fields*/
   margin-bottom: 5px;
   }
 
-  .list_answers {   /*applies to the input fields in the answer survery form*/
+.list_answers {   /*applies to the input fields in the answer survey form*/
     width: 100px;
     text-align: center;
   }
+
+.edit_list li {
+  display: block;
+  margin-left: 15%;
+  padding: 5px;
+  width: 60%;
+  margin-bottom: 5px;
+  color: #FF9147;
+  list-style: none;
+}
+
+.edit_list a {
+  color: red;
+}
+
+.edit_button {
+  width: 20%;
+}
 
 button {
   color: white;
   background-color: #3399FF;
   border-radius: 100px;
-  padding: 2px;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
 }
