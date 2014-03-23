@@ -81,17 +81,14 @@ get '/surveys/:id/results' do
   erb :results
 end
 
-
-#pass params[:questions] that will be {1=>"the first question", 2=>"second question", etc}
-#pass params[:title]
-
 post '/surveys' do #create the new survey
-  current_user = User.find(session[:user_id])
-  current_survey = current_user.surveys.create(title: params[title])
-  params[:questions].each_value{|value|
-    current_survey.questions.create(content: value)
-  }
-  redirect "/users/#{current_user.id}/surveys"
+  survey = Survey.new(title: params[:title])
+  params[:questions].each { |question| survey.questions << Question.new(content: question) }
+  survey.save!
+  if survey
+    current_user.surveys << survey
+    redirect "/surveys/#{survey.id}"
+  end
 end
 
 get '/surveys/:id/edit' do #edit a specific survey
@@ -103,8 +100,6 @@ end
 put '/surveys' do #Goes back to main surveys UPDATE Survey
 
 end
-
-
 
 delete '/sessions' do
   session.clear
