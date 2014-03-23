@@ -17,6 +17,24 @@ SurveyApp.prototype = {
     $("form[name='login']").on("submit", this.clickSubmitLogin);
     $("#logout_bar").on("click", this.clickSubmitLogout);
     $("#add_question").on("click", this.clickAddQuestion.bind(this));
+    $("#delete_survey").on("click", this.deleteSurvey)
+  },
+
+  deleteSurvey: function(event){
+    event.preventDefault();
+    var confirmation = confirm("Are you sure you want to delete this survey?");
+    if (confirmation === true)
+      {
+        var survey_id = $("#survey_id").val()
+        $.ajax({
+          url:"/surveys/" + survey_id,
+          type:"delete"
+        }).done(function(){
+          var user_id = $("#user_id").val()
+          window.location.href = "/users/" + user_id + "/surveys";
+          alert("The survey was successfully deleted !");
+          })
+      }
   },
 
   showSidebar: function() {
