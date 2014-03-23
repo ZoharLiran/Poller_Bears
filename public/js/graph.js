@@ -8,7 +8,8 @@ $(function () {
             }
             return count;
         }
-        var numOfQuestions = size(results) - 1;
+        var numOfQuestions = size(results);
+        debugger
         categories = []
         for (var i = 1; i <= numOfQuestions; i++)
         {

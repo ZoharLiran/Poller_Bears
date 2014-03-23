@@ -29,7 +29,7 @@ p {
 }
 
 a {
-  color: red;
+  color: darkblue;
   text-decoration: none;
 }
 
@@ -65,7 +65,7 @@ input {         /*should only apply to the login/logout input fields*/
 }
 
 .edit_list a {            /* survey/:id/edit page*/
-  color: red;
+  color: darkblue;
 }
 
 .edit_button {           /* survey/:id/edit page*/
@@ -97,7 +97,8 @@ button {
 
 .survey_list ul {           /* surveys page (homepage) */
   list-style: none;
-  color: red;
+  color: darkblue;
+  font-size: 1.5em;
 }
 
 .survey_list li {            /* surveys page (homepage) */
@@ -107,6 +108,7 @@ button {
 
 .survey_list a {            /* surveys page (homepage) */
   color: darkblue;
+  text-decoration: bold;
 }
 
 .survey_list a:hover {       /* surveys page (homepage) */
@@ -117,7 +119,7 @@ button {
 .questions_list ul {     /* survery/:id page */
   margin-top: 5%;
   list-style: none;
-  color: red;
+  color: darkblue;
 }
 
 .questions_list li {      /* survery/:id page */
@@ -126,7 +128,8 @@ button {
 }
 
 .questions_list p {       /* survery/:id page */
-  color: #FF9147;
+  color: darkblue;
+  font-size: 1.5em;
 }
 
 #fixed_nav {            /* top nav bar*/
