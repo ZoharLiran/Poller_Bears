@@ -1,15 +1,3 @@
-h1 {
-  color: #000099;
-  border-bottom: 1px solid #8FB2B2;
-  padding: 10px;
-  font-family: Helvetica, sans-serif;
-  font-weight: bold;
-}
-p {
-  font-family: sans-serif;
-  color: #0000FF;
-}
-
 body {
   background-image:url('/img/iceberg.jpg');
   background-color: #99CCFF;
@@ -17,6 +5,15 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
+
+h1 {
+  color: #000099;
+  border-bottom: 1px solid #8FB2B2;
+  padding: 10px;
+  font-family: Helvetica, sans-serif;
+  font-weight: bold;
+}
+
 
 h3 {
   color: white;
@@ -26,15 +23,23 @@ h3 {
   text-align: center;
 }
 
+p {
+  font-family: sans-serif;
+  color: #0000FF;
+}
+
 a {
   color: red;
   text-decoration: none;
 }
 
+img {
+  padding: 10px;
+}
 
 input {         /*should only apply to the login/logout input fields*/
   width: 100%;
- }
+}
 
 .create_survey {   /*applies to the input fields in the create survey form*/
   display: block;
@@ -48,7 +53,7 @@ input {         /*should only apply to the login/logout input fields*/
     text-align: center;
   }
 
-.edit_list li {
+.edit_list li {           /* survey/:id/edit page*/
   display: block;
   margin-left: 15%;
   padding: 5px;
@@ -58,11 +63,11 @@ input {         /*should only apply to the login/logout input fields*/
   list-style: none;
 }
 
-.edit_list a {
+.edit_list a {            /* survey/:id/edit page*/
   color: red;
 }
 
-.edit_button {
+.edit_button {           /* survey/:id/edit page*/
   width: 20%;
 }
 
@@ -75,11 +80,7 @@ button {
   text-decoration: none;
 }
 
-img {
-  padding: 10px;
-}
-
-/*TODO make the container background color transparent WHILE KEEPING EVERYTHING ELSE OPAQUE. Stupid nav bar and polar bear image want to be transparent SOOOO badly. Setting everything other than the container to opacity: 1; didn't work.*/
+/* TODO make the container background color transparent WHILE KEEPING EVERYTHING ELSE OPAQUE. Stupid nav bar and polar bear image want to be transparent SOOOO badly. Setting the container to opacity: 0.8 and everything other than the container to opacity: 1; didn't work. Neither did swapping out the hexadecimal background color for an rgba color. */
 
 .container {
   margin: 0 auto;
@@ -91,74 +92,74 @@ img {
   text-align: center;
 }
 
-.survey_list ul {
+.survey_list ul {           /* surveys page (homepage) */
   list-style: none;
   color: red;
 }
 
-
-.survey_list li {
+.survey_list li {            /* surveys page (homepage) */
   padding: 5px 0 20px 0;
   border-bottom: 1px solid #CCE6FF;
 }
 
-.survey_list a {
+.survey_list a {            /* surveys page (homepage) */
   color: #FF9147;
 }
 
-.questions_list ul {
+.survey_list a:hover {       /* surveys page (homepage) */
+  background-color: #FF944D;
+  color: white;
+}
+
+.questions_list ul {     /* survery/:id page */
   margin-top: 5%;
   list-style: none;
   color: red;
 }
 
-.footer {
-  bottom: 0;
-  width:100%;
-  padding: 5px;
-  text-align: center;
-}
-.questions_list li {
+.questions_list li {      /* survery/:id page */
   padding: 5px 0 20px 0;
   border-bottom: 1px solid #CCE6FF;
 }
 
-.questions_list a {
+.questions_list p {       /* survery/:id page */
   color: #FF9147;
-
 }
 
-.survey_list a:hover {
-  background-color: #FF944D;
-  color: white;
-}
-
-#fixed_nav {
+#fixed_nav {            /* top nav bar*/
+  width: 1000px;
   position: fixed;
   top: 0;
-  margin: 0;
-  width: 100%;
+  left: 50%;
+  margin-left: -200px;
   text-align: center;
 }
 
-#fixed_nav ul {
+#fixed_nav ul {          /* top nav bar*/
   list-style: none;
-  float: right;
-  margin-right: 42%;
+  display: inline;
 }
-#fixed_nav li {
+
+#fixed_nav li {          /*top nav bar*/
   float: left;
   padding: 5px;
   background-color: #3399FF;
   border-radius: 100px;
-  margin: 0 6px 0 6px;
+  margin: 10px 6px 10px 6px;
 }
 
-#fixed_nav a {
+#fixed_nav li:hover {        /* top nav bar*/
+  background-color: white;
+  color: #3399FF;
+  border: 1px dashed blue;
+}
+
+#fixed_nav a {        /* top nav bar*/
   color: white;
 }
 
-#login_bar {
+
+#login_bar {         /*side bar */
   position: fixed;
   top: 0;
   right: 10px;
@@ -171,7 +172,7 @@ img {
   width: 12%;
 }
 
-#logout_bar {
+#logout_bar {            /*side bar */
   position: fixed;
   top: 0;
   right: 10px;
@@ -184,7 +185,7 @@ img {
   width: 12%;
 }
 
-#result_graph {
+#result_graph {              /* surveys/:id/results page */
   position:fixed;
   top:10%;
   left: 20%;
@@ -192,4 +193,11 @@ img {
   height: 400px;
   margin: 0 auto;
   color: #FF944D;
+}
+
+.footer {
+  bottom: 0;
+  width:100%;
+  padding: 5px;
+  text-align: center;
 }
