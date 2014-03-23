@@ -52,6 +52,11 @@ end
 get '/surveys/:id' do #take specific survey
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
+  if @survey.user_id == session[:user_id]
+    @allow_edit = true
+  else
+    @allow_edit = false
+  end
   erb :survey
 end
 
@@ -94,11 +99,27 @@ end
 get '/surveys/:id/edit' do #edit a specific survey
   @survey = Survey.find(params[:id])
   @questions = @survey.questions
-  erb :edit_survey
+  erb :edit_survey    
 end
 
-put '/surveys' do #Goes back to main surveys UPDATE Survey
+put '/surveys/:id' do #Goes back to main surveys UPDATE Survey
+  user_id = session[:user_id] ? session[:user_id] : 1
+  current_survey = Survey.find(params[:id])
+  current_survey.questions.each{|question|
+    if params.has_key?(question.id.to_s)
+      question.content = params[question.id.to_s]
+      question.save
+    else
+      question.destroy
+    end
+  }
+  current_survey.save
+  redirect "/surveys/#{params[:id]}"
+end
 
+delete "/surveys/:id" do
+  Survey.find(params[:id]).destroy
+  redirect "/users/#{session[:user_id]}/surveys"
 end
 
 delete '/sessions' do

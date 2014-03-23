@@ -20,7 +20,9 @@
       </form>
     </ul>
   </div>
-  <a href="/surveys/<%= @survey.id %>/edit"><button type="button">Edit survey</button></a>
+  <% if @allow_edit %>
+    <a href="/surveys/<%= @survey.id %>/edit"><button type="button">Edit survey</button></a>
+  <% end %>
   <a href="/surveys/<%= @survey.id %>/results"><button type="button">View results</button></a>
 
 </div>
