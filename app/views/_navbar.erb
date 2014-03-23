@@ -2,6 +2,8 @@
   <ul>
     <a href="/surveys"><li>Home</li></a>
     <a href="/surveys/new"><li>Create a survey</li></a>
-    <a href="/users/<%= current_user.id %>/surveys"><li>View your surveys</li></a>
+    <% if session[:user_id] != nil %>
+	    <a href="/users/<%= current_user.id %>/surveys"><li>View your surveys</li></a>
+    <% end %>
   </ul>
 </div>
