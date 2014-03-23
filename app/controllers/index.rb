@@ -29,13 +29,12 @@ post '/users' do #create a new user
 end
 
 before '/users/*' do
-  if !session[:user_id]
+  if !logged_in?
     redirect '/'
   end
 end
 
 get '/users/:id/surveys' do      # User Profile? List of user's created surveys?
-  current_user = User.find(params[:id])
   @surveys = current_user.surveys
   erb :surveys
 end
@@ -103,5 +102,5 @@ end
 
 delete '/sessions' do
   session.clear
-  return true
+  status 200
 end
