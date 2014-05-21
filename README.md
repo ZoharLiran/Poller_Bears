@@ -2,6 +2,7 @@ Poller-Bears
 ============
 
 Survery Gorilla Group Challenge - Brit, Erin, Jordan and Zohar
+A small Sinatra app for creating and tracking surveys. Uses BCrypt for user authentication and HighCharts for data visualization. 
 
 MVP:
 ---
